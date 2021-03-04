@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div> 
+</body>
+    <script>
+       const app= Vue.createApp({
+           data(){
+               return{
+                   msg:'jspang.com',
+                   name:'title',
+                   event:'click'
+               }
+           },
+           methods:{
+            handleItemClick(){
+               alert('jspang.com')
+            },
+            handleItemClick(e){
+                alert('技术胖')
+            }
+           },
+           
+          template:`
+          <h2
+            :[name]title="msg"
+            @[event]=" handleItemClick">
+            {{msg}}
+            </h2>
+            
+            <form action="http://jspang.com" @click.prevent="handIeButton">
+                <button type="submit">submit</button> 
+                </form> 
+          `
+            
+            
+        })
+        const vm=app.mount("#app")
+    </script>
+
+                         
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佳丽列表</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"> 
+ 
+    </div> 
+</body>
+    <script>
+      const app=  Vue.createApp({
+            data(){
+              return{
+                listArray:['谢大脚','刘英','晓红'],
+                listObject:{
+                    girlone:'谢大脚',
+                    girtwo:'刘英',
+                    girthree:'晓红',
+                }
+              }
+            },
+            methods:{
+            handleChangeBtnClick(){
+                this.listArray.push('jspang.com')
+            }
+            },
+            template:
+            `
+            <ul>
+                <templste v-for="(item,index) in listArray"
+                :key="index+item">
+                <li   v-if="item !='谢大脚'">
+                    [{{index}}]{{item}}
+                    </li>
+                    
+                    </templste>
+            </ul>
+            
+            <button @click="handleChangeBtnClick">增加佳丽</button>
+            <ul>
+                <li v-for="(value,key,index) in listObject"
+                :key="key"
+                >
+                    [{{index}}]{{key}}:{{value}}</li>
+            </ul>
+            <span v-for="count in 99">{{count}}|</span>
+            `   
+        })
+        const vm=app.mount("#app")
+    </script>
+
+                         
+</html>

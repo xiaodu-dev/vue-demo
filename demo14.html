@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佳丽列表</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app=Vue.createApp({
+        data(){
+            return{
+                count:0
+            }
+        },
+        methods:{
+            addCountclick(){
+                this.count++
+            },
+             handleBtnClick1(){
+                 alert(1)
+             }
+            
+        },
+        //prevent capture once passive
+        template:`
+        <div  @click.self ="handleBtnClick1">
+        <div>目前已点佳丽数量{{count}}</div>
+        <button @click="addCountclick">增加一位佳丽</button>
+        </div>
+        `
+    })
+    const vm=app.mount("#app")
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div> 
+</body>
+    <script>
+       const app= Vue.createApp({
+           data(){
+               return{
+                   classString:'red',
+                   classObject:{red:true,background:true},
+                   classArray:['green','background',],
+                   styleString:'color:orange',
+                   styleObject:{
+                       color:'red',
+                       background:'yellow'
+                   }
+               }
+           },
+         template:`
+         <h2 :style="styleObject">jspang.com</h2>
+         <sonCom class="green"/>
+         `  
+        //  template:`
+        //  <h2 :class="classArray">jspang.com</h2>
+        //  <sonCom class="green"/>
+        //  `  
+       })
+       app.component('sonCom',{
+           template:`<div>
+           <div>sonCom</div>
+           <div>jspang</div>
+           </div>`
+       })
+        const vm=app.mount("#app")
+    </script>
+    <style>
+        .red{color:red;}
+        .green{color:green;}
+        .background{
+            background-color: orange;
+        }
+    </style>
+                         
+</html>

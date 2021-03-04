@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div> 
+</body>
+    <script>
+       const app= Vue.createApp({
+           data(){
+               return{
+                   msg:'jspang.com',
+                   price:10,
+                   count:5
+               }
+           },
+           //计算属性的特性，当计算属性依赖的内容发生改变时，才会重新执行计算。
+           computed:{
+               total(){
+                   return this.price * this.count
+               }
+           },
+           methods:{
+            handleItemClick(){
+                this.msg=this.msg=='jspang.com'?'技术胖':'jspang.com'
+            },
+           addCount(){
+               this.count++
+           }
+           },
+         template:`
+         <h2>{{msg}}</h2>
+         <h2>总和：{{total}}</h2>
+         <button @click="addCount">再买一个</button>
+         `
+        })
+        const vm=app.mount("#app")
+    </script>
+
+                         
+</html>
